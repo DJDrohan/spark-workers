@@ -30,8 +30,6 @@ def add():
     else:
         token = get_api_key()
         num = request.form.get('num')  # Safely get the 'num' value from the form
-        if not num:
-            return "Please provide 'num' parameter"
         
         ret = addWorker(token, num)
         return ret
