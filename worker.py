@@ -1,4 +1,4 @@
-from flask import Flask
+ from flask import Flask
 from flask import request
 import requests
 import os
@@ -25,14 +25,12 @@ def test():
 
 @app.route("/add",methods=['GET','POST'])
 def add():
-    if request.method == 'GET':
-        return "Use POST to add"  # Replace with form template
-    else:
-        token = get_api_key()
-        num = request.form.get('num')  # Safely get the 'num' value from the form
-        
-        ret = addWorker(token, num)
-        return ret
+  if request.method=='GET':
+    return "Use post to add" # replace with form template
+  else:
+    token=get_api_key()
+    ret = addWorker(token,request.form['num'])
+    return ret
 
 
 def addWorker(token, num):
